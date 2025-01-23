@@ -22,7 +22,7 @@ class Router{
         $rutas_protegidas = ['/admin', '/propiedades/crear', '/propiedades/actualizar', '/propiedades/eliminar',
         '/vendedores/crear', '/vendedores/actualizar', '/vendedores/eliminar'];
 
-        $urlActual = $_SERVER['PATH_INFO'] ?? '/'; //Con Esto Filtro El Arreglo
+        $urlActual = strtok($_SERVER['REQUEST_URI'], '?') ?? '/'; //Con Esto Filtro El Arreglo
         $metodo = $_SERVER['REQUEST_METHOD'];
 
         if($metodo === 'GET'){
